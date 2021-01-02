@@ -1,0 +1,98 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" > <b>{{logginedas | uppercase}}</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+  
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar">
+    <a  routerLink="/dashboard"  class="mt-3">Dashboard</a>
+    <a  routerLink="/report" class="active">Report</a>
+  </div>
+  <div *ngIf="deleteuserdtls" class="alert alert-success" style="margin-left: 250px;
+  width: 66%;">
+    <strong>User Deleted!</strong> 
+  </div>
+  
+  <div *ngIf="displayadmin" class="main sidespace" >
+      <h5>Users List</h5>
+    <p-table  [value]="userdetails"  [rows]=6  class="mt-3">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Mobilenumber</th>
+                <th>Designation</th>
+                <th>Email</th>
+                <th>Actions</th>
+
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-userdetails let-i="rowIndex">
+
+            <tr >
+                <td class="ptcol"> {{i+1}}</td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{userdetails.name}}</span></td>              
+                <td class="text-left ptcol"><span class="textellipsis18" >{{userdetails.gender}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{userdetails.mobileNumber}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{userdetails.designation}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{userdetails.emailId}}</span></td>
+                <td class="text-left ptcol " >
+                    <button class="btn btn-sm btn-danger" (click)="deleteuser(i)">delete</button>
+
+            </tr>
+        </ng-template>
+    </p-table>
+    <h6 *ngIf="userdetails.length == 0" class="text-center p-4">No Data Found</h6>
+  </div>
+
+  <div *ngIf="displaystaff" class="main sidespace ">
+    <h5>Staff List</h5>
+
+    <p-table  [value]="managerdetails"  [rows]=6>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Mobilenumber</th>
+                <th>Designation</th>
+                <th>Email</th>
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-managerdetails let-i="rowIndex">
+
+            <tr >
+                <td class="ptcol"> {{i+1}}</td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{managerdetails.name}}</span></td>               
+                <td class="text-left ptcol"><span class="textellipsis18" >{{managerdetails.gender}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{managerdetails.mobileNumber}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{managerdetails.designation}}</span></td>
+                <td class="text-left ptcol"><span class="textellipsis18" >{{managerdetails.emailId}}</span></td>
+                
+
+
+            </tr>
+        </ng-template>
+    </p-table>
+    <h6 *ngIf="managerdetails.length == 0" class="text-center p-4">No Data Found</h6>
+    
+  </div>
+

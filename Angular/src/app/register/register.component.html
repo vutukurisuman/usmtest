@@ -1,0 +1,96 @@
+        <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto mt-4">
+            <div class="card card0 border-0">
+                <div class="row d-flex">
+                    <div class="col-lg-6 mb-2 mt-2">
+                        <div class="card1 pb-5">
+                            <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+                            <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-2 mt-2">
+                        <div class="card2 card border-0 px-4 py-5">
+                            <div *ngIf="messageSuccess" class="alert alert-success">
+                                <strong>User created succesfully!</strong> 
+                              </div>
+                              <div *ngIf="messageError" class="alert alert-danger">
+                                <strong>{{duplicateMail}}</strong> 
+                              </div>
+                            <div class="row mb-4 px-3">
+                                <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+                                <div class="facebook text-center mr-3">
+                                    <div class="fa fa-facebook"></div>
+                                </div>
+                                <div class="twitter text-center mr-3">
+                                    <div class="fa fa-twitter"></div>
+                                </div>
+                                <div class="linkedin text-center mr-3">
+                                    <div class="fa fa-linkedin"></div>
+                                </div>
+                            </div>
+                            <div class="row px-3 mb-4">
+                                <div class="line"></div> <small class="or text-center">Or</small>
+                                <div class="line"></div>
+                            </div>
+                            <form [formGroup]="registerForm"  style="display: block;">
+                                <div class="form-group">
+                                    <input type="text" formControlName="name"  class="form-control" maxlength="20" placeholder="Name" >
+                                    <span style="color:red" *ngIf="registerForm.get('name').touched &&  registerForm.get('name').hasError('required')">
+                                        Required Field
+                                    </span>
+
+                                </div>
+                                <div class="form-group">
+                                    <!-- <input type="text" formControlName="gender"  class="form-control" maxlength="10" placeholder="Gender"> -->
+                                    <p-dropdown [options]="gender"  formControlName="gender" [style]="{'width': '100%'}" placeholder="Select a Gender" optionLabel="name" [showClear]="false" ></p-dropdown>
+                                    <span style="color:red" *ngIf="registerForm.get('gender').touched &&  registerForm.get('gender').hasError('required')">
+                                        Required Field
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="mobilenumber"  class="form-control" maxlength="14" placeholder="Mobile number">
+                                    <span style="color:red" *ngIf="registerForm.get('mobilenumber').touched &&  registerForm.get('mobilenumber').hasError('required')">
+                                        Required Field
+                                    </span>
+                                    <span style="color:red" *ngIf=" registerForm.get('mobilenumber').invalid && registerForm.get('mobilenumber').hasError('pattern')  ">
+                                        Please Enter Digits Only
+                                    </span>
+                                    <span style="color:red" *ngIf=" registerForm.get('mobilenumber').invalid && registerForm.get('mobilenumber').hasError('minlength') && !registerForm.get('mobilenumber').hasError('pattern')">
+                                        Please Enter Valid Mobile Number
+                                    </span>
+                                    <span style="color:red"*ngIf=" registerForm.get('mobilenumber').invalid && registerForm.get('mobilenumber').hasError('maxlength') && !registerForm.get('mobilenumber').hasError('pattern') ">
+                                        Please Enter Digits Only
+                                    </span>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" formControlName="email"  class="form-control" placeholder="Email Id">
+                                    <span style="color:red" *ngIf=" registerForm.get('email').invalid && registerForm.get('email').hasError('pattern') ">
+                                        Please Enter Valid Email Id
+                                    </span>
+                                    <span style="color:red"*ngIf=" registerForm.get('email').touched &&  registerForm.get('email').hasError('required')">
+                                        Required Field
+                                    </span>
+                                </div>
+                                <div class="form-group" >
+                                    <p-dropdown [options]="designation"  formControlName="designation" [style]="{'width': '100%'}" placeholder="Select a Designation" optionLabel="name" [showClear]="false" ></p-dropdown>
+                                    <span style="color:red" *ngIf="registerForm.get('designation').touched &&  registerForm.get('designation').hasError('required')">
+                                        Required Field
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" formControlName="password" maxlength="10" class="form-control" placeholder="Password">
+                                    <span style="color:red" *ngIf="registerForm.get('password').touched &&  registerForm.get('password').hasError('required')">
+                                        Required Field
+                                    </span>
+                                </div>
+                              
+                            </form>
+                           
+                            <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" (click)="register()">Register</button> </div>
+                            <div class="row mb-4 px-3"> <small class="font-weight-bold">Already have an account? <a class="text-danger " routerLink="/login">Login</a></small> </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>  

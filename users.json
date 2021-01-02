@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "5fef30dccb773b2708435634"
+  },
+  "name": "Tom",
+  "gender": "Male",
+  "mobileNumber": "9878712345",
+  "designation": "Admin",
+  "emailId": "tom@gmail.com",
+  "password": "$2a$10$HDeAkDbF0tS2lJ5a39.5D.e09jWfWOXhV8tfljUPZCpcMstBIzbGK"
+},{
+  "_id": {
+    "$oid": "5fef30ffcb773b2708435635"
+  },
+  "name": "Jhon",
+  "gender": "Male",
+  "mobileNumber": "876123456",
+  "designation": "Manager",
+  "emailId": "jhon@gmail.com",
+  "password": "$2a$10$dr56dAwucPGQy8CCatLbD.QNZ9lQcG6z6xcfKzN8QnVNAU7GBC1vm"
+},{
+  "_id": {
+    "$oid": "5fef31b9cb773b2708435637"
+  },
+  "name": "Robert",
+  "gender": "Male",
+  "mobileNumber": "877678338",
+  "designation": "Staff",
+  "emailId": "robert@gmail.com",
+  "password": "$2a$10$JBKHBZUGdifnT/T8iMdA9O54sa929vbCmjonmwY704LZYilXuJnwu"
+}]
